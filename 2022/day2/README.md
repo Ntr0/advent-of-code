@@ -1,4 +1,4 @@
-# Advend of Code 2022 - Day 2 - Rockstar
+# Advent of Code 2022 - Day 2 - Rockstar
 
 I decided to try a very interesting esoteric language: [Rockstar](https://github.com/RockstarLang/rockstar).
 
