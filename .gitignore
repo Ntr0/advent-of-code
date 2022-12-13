@@ -190,3 +190,4 @@ inc/
 /pm_to_blib
 /*.zip
 
+.idea
