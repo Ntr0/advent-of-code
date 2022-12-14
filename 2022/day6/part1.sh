@@ -37,7 +37,6 @@ sqlite-utils memory input.tsv "
       from positions as a
       join positions b on
         a.pos + $length > b.pos and
-        -- mnlblmnlb 3 & 2 -> 2 - (3 - 1 - 1)
         b.distance + b.pos > a.pos + $length - 1 and
         a.pos <= b.pos and
         b.char <> ''
