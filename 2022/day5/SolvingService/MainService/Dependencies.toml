@@ -62,6 +62,31 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
+name = "grpc"
+version = "1.5.0"
+dependencies = [
+	{org = "ballerina", name = "auth"},
+	{org = "ballerina", name = "crypto"},
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "jwt"},
+	{org = "ballerina", name = "lang.runtime"},
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "oauth2"},
+	{org = "ballerina", name = "protobuf"},
+	{org = "ballerina", name = "regex"},
+	{org = "ballerina", name = "time"}
+]
+modules = [
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.any"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.duration"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.struct"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.timestamp"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.wrappers"}
+]
+
+[[package]]
+org = "ballerina"
 name = "http"
 version = "2.5.1"
 dependencies = [
@@ -247,11 +272,32 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
+name = "protobuf"
+version = "1.3.2"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "time"}
+]
+modules = [
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.any"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.duration"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.empty"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.struct"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.timestamp"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.wrappers"}
+]
+
+[[package]]
+org = "ballerina"
 name = "regex"
 version = "1.3.2"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.string"}
+]
+modules = [
+	{org = "ballerina", packageName = "regex", moduleName = "regex"}
 ]
 
 [[package]]
@@ -296,8 +342,11 @@ org = "csw"
 name = "MainService"
 version = "0.1.0"
 dependencies = [
+	{org = "ballerina", name = "grpc"},
 	{org = "ballerina", name = "http"},
 	{org = "ballerina", name = "io"},
+	{org = "ballerina", name = "protobuf"},
+	{org = "ballerina", name = "regex"},
 	{org = "ballerinai", name = "observe"}
 ]
 modules = [

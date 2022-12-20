@@ -9,7 +9,14 @@ service "Crane" on svc {
         RepositoryClient ep = check new ("http://localhost:8091");
         PopRequest popRequest = {id: moveRequest.src, count: moveRequest.count};
         Crates popResponse = check ep->pop(popRequest);
-        PushRequest pushRequest = {id: moveRequest.tgt, crates: popResponse.crates};
+        string crates = popResponse.crates;
+        if !moveRequest.preserveOrder {
+            crates="";
+            foreach int i in 0 ..< popResponse.crates.length() {
+                crates += popResponse.crates[popResponse.crates.length() - 1 - i];
+            }
+        }
+        PushRequest pushRequest = {id: moveRequest.tgt, crates: crates};
         Crates _ = check ep->push(pushRequest);
         return{success: true}; 
     }

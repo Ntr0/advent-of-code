@@ -42,38 +42,6 @@ public isolated client class CraneClient {
     }
 }
 
-public client class CraneMoveResponseCaller {
-    private grpc:Caller caller;
-
-    public isolated function init(grpc:Caller caller) {
-        self.caller = caller;
-    }
-
-    public isolated function getId() returns int {
-        return self.caller.getId();
-    }
-
-    isolated remote function sendMoveResponse(MoveResponse response) returns grpc:Error? {
-        return self.caller->send(response);
-    }
-
-    isolated remote function sendContextMoveResponse(ContextMoveResponse response) returns grpc:Error? {
-        return self.caller->send(response);
-    }
-
-    isolated remote function sendError(grpc:Error response) returns grpc:Error? {
-        return self.caller->sendError(response);
-    }
-
-    isolated remote function complete() returns grpc:Error? {
-        return self.caller->complete();
-    }
-
-    public isolated function isCancelled() returns boolean {
-        return self.caller.isCancelled();
-    }
-}
-
 public type ContextMoveResponse record {|
     MoveResponse content;
     map<string|string[]> headers;

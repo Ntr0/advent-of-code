@@ -10,6 +10,7 @@ message MoveRequest {
   int32 src = 1;
   int32 tgt = 2;
   int32 count = 3;
+  bool preserveOrder = 4;
 }
 
 message MoveResponse {

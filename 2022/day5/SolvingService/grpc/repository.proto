@@ -3,9 +3,10 @@ syntax = "proto3";
 package repository;
 
 service Repository {
-  rpc initialize(InitRequest) returns (InitResponse);
+  rpc reset(Empty) returns (Empty);
   rpc push(PushRequest) returns (Crates);
   rpc pop(PopRequest) returns (Crates);
+  rpc shift(PushRequest) returns (Crates);
   rpc getTopCrates(Empty) returns (Crates);
 }
 
