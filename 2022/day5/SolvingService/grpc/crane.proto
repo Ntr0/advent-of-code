@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package crane;
+
+service Crane {
+  rpc move(MoveRequest) returns (MoveResponse);
+}
+
+message MoveRequest {
+  int32 src = 1;
+  int32 tgt = 2;
+  int32 count = 3;
+}
+
+message MoveResponse {
+  bool success = 1;
+}
